@@ -39,7 +39,8 @@ function inline() {
     const video = document.getElementById('wowza_player_2021-Video');
     console.log(video);
     const attribute = document.createAttribute('playsinline');
-    video.setAttributeNode(attribute);
+    video.setAttribute('playsinline', 'playsinline');
+    video.setAttribute('webkit-playsinline', 'true');
 
 }
 
