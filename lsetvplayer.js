@@ -35,10 +35,16 @@ function addDonate () {
     return newElement;
 }
 
+function inline() {
+    var video = document.getElementById('wowza_player_2021-Video');
+    video.setAttribute(playsinline, "");
+
+}
+
 onLoadListener = function () {
-    console.log('loaded........');
     addDonate();
     modal();
+    inline();
 
 }
 player.onLoad(onLoadListener);
@@ -65,17 +71,13 @@ function fullscreen() {
 // # Modal stuff:
 function modal(){
   const openEls = document.querySelectorAll("[data-open]");
-
   const closeEls = document.querySelectorAll("[data-close]");
-  console.log(openEls);
-  console.log(closeEls);
   const isVisible = "is-visible";
 
   for (const el of openEls) {
     el.addEventListener("click", function() {
       const modalId = this.dataset.open;
       fullscreen();
-      console.log(modalId);
       document.getElementById(modalId).classList.add(isVisible);
     });
   }
