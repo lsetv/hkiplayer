@@ -36,8 +36,10 @@ function addDonate () {
 }
 
 function inline() {
-    var video = document.getElementById('wowza_player_2021-Video');
-    video.setAttribute(playsinline, "");
+    const video = document.getElementById('wowza_player_2021-Video');
+    console.log(video);
+    const attribute = document.createAttribute('playsinline');
+    video.setAttributeNode(attribute);
 
 }
 
