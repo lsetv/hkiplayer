@@ -67,9 +67,14 @@ function hideError () {
 onLoadListener = function () {
     addDonate();
     modal();
-    hideError();
+    
 }
 player.onLoad(onLoadListener);
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log('DOM is ready.')
+  hideError();
+});
 
 function fullscreen() {
   var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
