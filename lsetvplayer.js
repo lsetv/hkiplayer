@@ -55,11 +55,13 @@ function addDonate () {
 // }
 
 function hideError () {
+  console.log("hideerror")
   const error = document.getElementById('give_error_error');
   const patt = /^You are missing the donation id to view this donation receipt.$/
   if (error != null){
     if (error.innerText.match(patt)) {
       error.style.display = "none";
+      console.log("called")
     }
   }
 }
