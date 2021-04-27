@@ -54,9 +54,20 @@ function addDonate () {
 
 // }
 
+function hideError () {
+  const error = document.getElementById('give_error_error');
+  const patt = /^You are missing the donation id to view this donation receipt.$/
+  if (error != null){
+    if (error.innerText.match(patt)) {
+      error.style.display = "none";
+    }
+  }
+}
+
 onLoadListener = function () {
     addDonate();
     modal();
+    hideError();
 }
 player.onLoad(onLoadListener);
 
