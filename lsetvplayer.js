@@ -18,6 +18,7 @@ var player = WowzaPlayer.create("wowza_player_2021",
     "uiEnableDVR":"true",
     "uiShowChannelBug": "true",
     "uiChannelBugLocation": "topleft",
+
     }
 );
 
@@ -25,6 +26,7 @@ var player = WowzaPlayer.create("wowza_player_2021",
 
 function addDonate () {
     var insertEl = document.getElementById('wowza_player_2021-ChannelBug');
+    if (insertEl != null) {
     insertEl.classList.remove("wowza_player_2021-Hide");
     insertEl.classList.add("wowza_player_2021-TopLeft", "wowza_player_2021-Show");
     newElement = document.createElement('div');
@@ -33,22 +35,28 @@ function addDonate () {
     insertEl.appendChild(newElement);
 
     return newElement;
+  } else {
+    // console.log('we are on mobile');
+    const playerContainer = document.getElementById('wowza_player_2021');
+    newElement = document.createElement('div');
+    newElement.innerHTML = "<button type='button' class='wp-block-button__link' id='donateBtn' data-open='modal1'>Donate </button>";
+    newElement.className = 'donateContainer';
+    playerContainer.parentNode.insertBefore(newElement, playerContainer.nextSibling);
+  }
 }
 
-function inline() {
-    const video = document.getElementById('wowza_player_2021-Video');
-    console.log(video);
-    const attribute = document.createAttribute('playsinline');
-    video.setAttribute('playsinline', 'playsinline');
-    video.setAttribute('webkit-playsinline', 'true');
+// function inline() {
+//     const video = document.getElementById('wowza_player_2021-Video');
+//     // console.log(video);
+//     const attribute = document.createAttribute('playsinline');
+//     video.setAttribute('playsinline', 'playsinline');
+//     video.setAttribute('webkit-playsinline', 'true');
 
-}
+// }
 
 onLoadListener = function () {
     addDonate();
     modal();
-    inline();
-
 }
 player.onLoad(onLoadListener);
 
