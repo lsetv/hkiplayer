@@ -7,8 +7,42 @@
 	z-index: 999;
 }
 
-#wowza_player_2021{
-	min-height: 480px;
+.special {
+  z-index: 999;
+  display: block;
+  color: #fff !important;
+  position: absolute  !important;
+  height: 5em  !important;
+  width: 10em !important;
+  margin: 10px !important;
+  font-family: Objective,Helvetica,Arial,sans-serif !important;
+  background-color: rgba(122, 65, 131, 0.6) !important;
+  border: 2px solid #7a4183 !important;
+  border-radius: 0 !important;
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  height: auto;
+  line-height: 1.6rem !important;
+  overflow: hidden;
+
+  text-decoration: none !important;
+  -webkit-transition: background-color .1s ease-in-out,border-color .1s ease-in-out,color .1s ease-in-out !important;
+  transition: background-color .1s ease-in-out,border-color .1s ease-in-out,color .1s ease-in-out !important;
+}
+
+.vjs-big-play-button{
+  border-radius: 90px !important;
+  background-color: rgba(122, 65, 131, 0.6) !important;
+}
+
+.vjs-control-bar {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.videojs {
+  font-family: Objective,Helvetica,Arial,sans-serif !important;
 }
 
 #card_zip{
