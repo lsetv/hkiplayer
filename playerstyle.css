@@ -7,15 +7,55 @@
 	z-index: 999;
 }
 
+@font-face {
+    font-family: 'objectiveregular';
+    src: url('objective-regular-webfont.woff2') format('woff2'),
+         url('objective-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#player-container{
+  margin-right: 5%;
+  margin-left: 5%;
+  min-height: 360px;
+  height: 180px;
+  width: 320px;
+}
+.wrapper {
+  width: 50%;
+  /* whatever width you want */
+  display: inline-block;
+  position: relative;
+}
+.wrapper:after {
+  padding-top: 56.25%;
+  /* 16:9 ratio */
+  display: block;
+  content: '';
+}
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* fill parent */
+  background-color: deepskyblue;
+  /* let's see it! */
+  color: white;
+}
+
 .special {
   z-index: 999;
   display: block;
   color: #fff !important;
-  position: absolute  !important;
-  height: 5em  !important;
-  width: 10em !important;
+
+  height: 2em  !important;
+  width: 5em !important;
   margin: 10px !important;
-  font-family: Objective,Helvetica,Arial,sans-serif !important;
+  font-family: objectiveregular,Objective,Helvetica,Arial,sans-serif !important;
   background-color: rgba(122, 65, 131, 0.6) !important;
   border: 2px solid #7a4183 !important;
   border-radius: 0 !important;
@@ -23,7 +63,7 @@
   box-sizing: border-box;
   color: #ffffff !important;
   font-weight: 500 !important;
-  height: auto;
+  font-size: 1rem !important;
   line-height: 1.6rem !important;
   overflow: hidden;
 
@@ -43,6 +83,9 @@
 
 .videojs {
   font-family: Objective,Helvetica,Arial,sans-serif !important;
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 #card_zip{

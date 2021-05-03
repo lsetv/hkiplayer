@@ -19,17 +19,12 @@ videojs.registerComponent('MyButton', MyButton);
     control: true,
     liveui: true,
     fill: true,
+    poster: 'https://www-hki-org-develop.go-vip.net/wp-content/uploads/2021/05/01-PreShow_ForCounter_Still2021_web.jpg',
     sources: [{
-      src: 'https://cdn3.wowza.com/1/Mm9NMk9scTVjeHl4/VlNFL1NP/hls/live/playlist.m3u8',
+      src: 'https://cdn3.wowza.com/1/bHN2L0hwWjlpRGd0/VzcvaWhN/hls/live/playlist.m3u8',
       type: 'application/x-mpegURL'
     }],
     bigPlayButton: true,
-    controlBar: {
-      volumePanel: {
-        inline: false,
-        vertical: true
-      }
-    }
   };
 
   var player = videojs('wowza_player_2021', options, function onPlayerReady() {
@@ -39,7 +34,6 @@ videojs.registerComponent('MyButton', MyButton);
   
     // How about an event listener?
     this.on('ended', function() {
-      videojs.log('Awww...over so soon?!');
     });
   });
   player.addChild('myButton', {}); 
@@ -75,7 +69,6 @@ function modal(){
       const modalId = this.dataset.open;
       fullscreen();
       document.getElementById(modalId).classList.add(isVisible);
-      console.log( 'fired ');
     });
   }
 
@@ -99,3 +92,12 @@ function modal(){
   });
 }
 modal();
+
+document.addEventListener("DOMContentLoaded", function(){
+  var myvideo = document.getElementsByTagName('video');
+  console.log(myvideo);
+  for (var i = 0, j = myvideo .length; i < j; i++) {
+      myvideo[i].textTracks[0].mode = "hidden";
+  };
+
+});
