@@ -21,10 +21,17 @@ videojs.registerComponent('MyButton', MyButton);
     fill: true,
     poster: 'https://www-hki-org-develop.go-vip.net/wp-content/uploads/2021/05/01-PreShow_ForCounter_Still2021_web.jpg',
     sources: [{
-      src: 'https://cdn3.wowza.com/1/bHN2L0hwWjlpRGd0/VzcvaWhN/hls/live/playlist.m3u8',
+      src: 'https://cdn3.wowza.com/1/Mm9NMk9scTVjeHl4/VlNFL1NP/hls/live/playlist.m3u8',
       type: 'application/x-mpegURL'
     }],
     bigPlayButton: true,
+    html5: {
+      vhs: {
+        overrideNative: true
+      },
+      nativeAudioTracks: false,
+      nativeVideoTracks: false
+    }
   };
 
   var player = videojs('wowza_player_2021', options, function onPlayerReady() {
