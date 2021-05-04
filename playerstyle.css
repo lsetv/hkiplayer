@@ -58,9 +58,16 @@
   text-decoration: none !important;
   -webkit-transition: background-color .1s ease-in-out,border-color .1s ease-in-out,color .1s ease-in-out !important;
   transition: background-color .1s ease-in-out,border-color .1s ease-in-out,color .1s ease-in-out !important;
+  cursor: pointer;
 }
+
+.special:hover{
+  color: #fff !important;
+  background-color: rgba(122, 65, 131, 0.8) !important;
+}
+
 @media only screen and (min-width: 600px) {
-  .special { height: 2em  !important; font-size: 1.2rem !important;}
+  .special { height: 2em  !important; font-size: 1.2rem !important;margin: 20px !important;}
 }
 
 @media only screen and (min-width: 992px) {

@@ -39,15 +39,16 @@ var donateButton = videojs.extend(Button, {
   constructor: function() {
     Button.apply(this, arguments);
     this.addClass('special');
+    this.addClass('wp-block-button__link');
     this.setAttribute('data-open','modal1');
     this.setAttribute("onclick", 'modal()');
-    this.el().innerHTML = "<a>Donate</a>";
+    this.el().innerHTML = "Donate";
     
   },
   handleClick: function() {
-    modal();
-    console.log('modal');
-  }
+    //modal();
+  },
+
 });
 videojs.registerComponent('donateButton', donateButton);
   
