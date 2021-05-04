@@ -16,15 +16,8 @@
 
 }
 
-#player-container{
-  margin-right: 5%;
-  margin-left: 5%;
-  min-height: 360px;
-  height: 180px;
-  width: 320px;
-}
 .wrapper {
-  width: 50%;
+  width: 100%;
   /* whatever width you want */
   display: inline-block;
   position: relative;
@@ -41,15 +34,11 @@
   bottom: 0;
   right: 0;
   left: 0;
-  /* fill parent */
-  background-color: deepskyblue;
-  /* let's see it! */
-  color: white;
+
 }
 
 .special {
-  z-index: 999;
-  display: block;
+  z-index: 99999;
   color: #fff !important;
 
   height: 2em  !important;
@@ -66,11 +55,17 @@
   font-size: 1rem !important;
   line-height: 1.6rem !important;
   overflow: hidden;
-
   text-decoration: none !important;
   -webkit-transition: background-color .1s ease-in-out,border-color .1s ease-in-out,color .1s ease-in-out !important;
   transition: background-color .1s ease-in-out,border-color .1s ease-in-out,color .1s ease-in-out !important;
 }
+@media only screen and (min-width: 600px) {
+  .special { height: 2em  !important; font-size: 1.2rem !important;}
+}
+
+@media only screen and (min-width: 992px) {
+  .special {height: 2em  !important; font-size: 1.6rem !important;}
+} 
 
 .vjs-big-play-button{
   border-radius: 90px !important;
@@ -78,7 +73,7 @@
 }
 
 .vjs-control-bar {
-  background-color: rgba(255, 255, 255, 0) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .videojs {

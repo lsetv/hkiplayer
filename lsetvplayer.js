@@ -1,69 +1,3 @@
-
-var Button = videojs.getComponent('Button');
-var MyButton = videojs.extend(Button, {
-  constructor: function() {
-    Button.apply(this, arguments);
-    this.addClass('special');
-    this.id ='donateBtn';
-    this.setAttribute('data-open','modal1');
-    this.el().innerHTML = "Donate";
-    
-  },
-  handleClick: function() {
-    modal();
-  }
-});
-videojs.registerComponent('MyButton', MyButton);
-  
-  var options = {
-    control: true,
-    liveui: true,
-    fill: true,
-    poster: 'https://www-hki-org-develop.go-vip.net/wp-content/uploads/2021/05/01-PreShow_ForCounter_Still2021_web.jpg',
-    sources: [{
-      src: 'https://cdn3.wowza.com/1/Mm9NMk9scTVjeHl4/VlNFL1NP/hls/live/playlist.m3u8',
-      type: 'application/x-mpegURL'
-    }],
-    bigPlayButton: true,
-    html5: {
-      vhs: {
-        overrideNative: true
-      },
-      nativeAudioTracks: false,
-      nativeVideoTracks: false
-    }
-  };
-
-  var player = videojs('wowza_player_2021', options, function onPlayerReady() {
-    videojs.log('Your player is ready!');
-  
-    // In this context, `this` is the player that was created by Video.js.  
-  
-    // How about an event listener?
-    this.on('ended', function() {
-    });
-  });
-  player.addChild('myButton', {}); 
-
-function fullscreen() {
-  var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
-      (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
-      (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-      (document.msFullscreenElement && document.msFullscreenElement !== null);
-  console.log(isInFullScreen)
-  if (isInFullScreen) {
-      if (document.exitFullscreen) {
-          document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
-      } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-      }
-  }
-}
-
 // # Modal stuff:
 function modal(){
 
@@ -100,11 +34,88 @@ function modal(){
 }
 modal();
 
-document.addEventListener("DOMContentLoaded", function(){
-  var myvideo = document.getElementsByTagName('video');
-  console.log(myvideo);
-  for (var i = 0, j = myvideo .length; i < j; i++) {
-      myvideo[i].textTracks[0].mode = "hidden";
-  };
-
+var Button = videojs.getComponent('Button');
+var donateButton = videojs.extend(Button, {
+  constructor: function() {
+    Button.apply(this, arguments);
+    this.addClass('special');
+    this.setAttribute('data-open','modal1');
+    this.setAttribute("onclick", 'modal()');
+    this.el().innerHTML = "<a>Donate</a>";
+    
+  },
+  handleClick: function() {
+    modal();
+    console.log('modal');
+  }
 });
+videojs.registerComponent('donateButton', donateButton);
+  
+var options = {
+  control: true,
+  liveui: true,
+  fill: true,
+  preload: 'auto',
+  poster: 'https://www-hki-org-develop.go-vip.net/wp-content/uploads/2021/05/01-PreShow_ForCounter_Still2021_web.jpg',
+  sources: [{
+    src: 'https://cdn3.wowza.com/1/bHN2L0hwWjlpRGd0/VzcvaWhN/hls/live/playlist.m3u8',
+    type: 'application/x-mpegURL'
+  }],
+  bigPlayButton: true,
+  html5: {
+    vhs: {
+      overrideNative: true
+    },
+
+  },
+  nativeAudioTracks: false,
+  nativeVideoTracks: false,
+  nativeTextTracks: false
+};
+
+var player = videojs('wowza_player_2021', options, function onPlayerReady() {
+  videojs.log('Your player is ready!');
+  modal();
+  // In this context, `this` is the player that was created by Video.js.  
+
+  // How about an event listener?
+  this.on('ended', function() {
+  });
+});
+player.addChild('donateButton', {}); 
+
+// var tracks = player.textTracks().textTrackSettings.setValues({
+//   backgroundColor: "#FF0",
+//   color: "#00F",
+//   fontFamily: "monospaceSansSerif",
+//   fontPercent: 1.5,
+//   windowColor: "#0FF",
+//   windowOpacity: "0.5"
+// });
+
+
+function fullscreen() {
+  var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+      (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+      (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+      (document.msFullscreenElement && document.msFullscreenElement !== null);
+  console.log(isInFullScreen)
+  if (isInFullScreen) {
+      if (document.exitFullscreen) {
+          document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+      }
+  }
+}
+
+
+
+// document.addEventListener("DOMContentLoaded", function(){
+//   modal();
+
+// });
