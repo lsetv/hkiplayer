@@ -38,9 +38,9 @@
 }
 
 .special {
-  z-index: 99999;
+  z-index: 999;
   color: #fff !important;
-
+  touch-action: manipulation;
   height: 2em  !important;
   width: 5em !important;
   margin: 10px !important;
