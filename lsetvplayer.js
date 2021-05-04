@@ -40,7 +40,7 @@ function addDonate () {
     // console.log('we are on mobile');
     const playerContainer = document.getElementById('wowza_player_2021');
     newElement = document.createElement('div');
-    newElement.innerHTML = "<button type='button' class='wp-block-button__link' id='donateBtn' data-open='modal1'>Donate </button>";
+    newElement.innerHTML = "<button type='button' class='wp-block-button__link' id='donateBtn' data-open='modal1' style='margin-top: 10px;'>Donate </button>";
     newElement.className = 'donateContainer';
     playerContainer.parentNode.insertBefore(newElement, playerContainer.nextSibling);
   }
